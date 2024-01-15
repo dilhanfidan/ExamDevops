@@ -31,23 +31,23 @@ try {
             ) !important`;
 
     let gamerTagValue;
-
+    
     gamerTagInput.addEventListener('change', (event) => {
         gamerTagValue = event.target.value;
     });
 
     checkButton.addEventListener('click', () => {
-        const validationResult = isValid(gamerTagValue);
-        // TODO : Define the correct error message regarding the validation rules
-        feedbackMessage.textContent = validationResult
-            ? 'Gamer tag is not valid'
-            : 'Gamer tag is valid';
-        // ----------------------------------------------------------------------
-        body.setAttribute(
-            'style',
-            validationResult ? greenBackgroundColor : redBackgroundColor
-        );
-    });
+    const validationResult = isValid(gamerTagValue);
+    // TODO : Définissez le message d'erreur correct en fonction des règles de validation
+    feedbackMessage.textContent = validationResult
+        ? validationResult
+        : 'Gamer tag is valid';
+    // ----------------------------------------------------------------------
+    body.setAttribute(
+        'style',
+        validationResult ? redBackgroundColor : greenBackgroundColor
+    );
+});
 
     resetButton.addEventListener('click', () => {
         feedbackMessage.textContent = '';
